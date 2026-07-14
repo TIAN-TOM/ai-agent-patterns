@@ -1,5 +1,12 @@
 # AI Agent Patterns
 
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1.x%20%7C%200.3.x-1C3C3C)
+![FAISS](https://img.shields.io/badge/FAISS-vector%20search-005571)
+![Milvus / Zilliz](https://img.shields.io/badge/Milvus%20%2F%20Zilliz-vector%20DB-00A1EA)
+![Agents](https://img.shields.io/badge/pattern-RAG%20%7C%20tool%20calling%20%7C%20function%20calling-success)
+
 Three small AI agents, each wired with a **different agent architecture**, living in one
 workspace behind a shared launcher. It's a hands-on comparison of how the same
 "LLM + tools" idea can be built three different ways.
