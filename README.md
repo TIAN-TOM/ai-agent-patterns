@@ -6,6 +6,7 @@
 ![FAISS](https://img.shields.io/badge/FAISS-vector%20search-005571)
 ![Milvus / Zilliz](https://img.shields.io/badge/Milvus%20%2F%20Zilliz-vector%20DB-00A1EA)
 ![Agents](https://img.shields.io/badge/pattern-RAG%20%7C%20tool%20calling%20%7C%20function%20calling-success)
+[![License](https://img.shields.io/badge/license-mixed-lightgrey)](#licensing-note)
 
 Three small AI agents, each wired with a **different agent architecture**, living in one
 workspace behind a shared launcher. It's a hands-on comparison of how the same
@@ -38,6 +39,47 @@ dependencies (in fact policy-advisor and log-agent pin incompatible LangChain ma
 
 > The three virtualenvs are deliberately isolated: policy-advisor uses LangChain **1.x**,
 > log-agent uses **0.3.x** (the two can't coexist in one env), traffic-classifier uses no LangChain.
+
+---
+
+## How each agent is wired
+
+Same core loop everywhere — the LLM plans, calls tools, reads a store, then answers — but the
+trigger, the tool set, and the backing store differ per agent.
+
+```mermaid
+flowchart LR
+    subgraph PA["policy-advisor · RAG"]
+        direction TB
+        A1[/"Terminal question"/] --> A2(("LLM<br/>plans"))
+        A2 --> A3["tools: parse · search · get_doc"]
+        A3 --> A4[("FAISS<br/>local")]
+        A4 --> A2
+        A2 --> A5[/"Compliance report"/]
+    end
+    subgraph LA["log-agent · regex + RAG"]
+        direction TB
+        B1[/"Terminal question"/] --> B2(("LLM<br/>plans"))
+        B2 --> B3["tools: parse · search · analyze x10 · raw"]
+        B3 --> B4[("FAISS + regex<br/>local")]
+        B4 --> B2
+        B2 --> B5[/"Threat report + MITRE mapping"/]
+    end
+    subgraph TC["traffic-classifier · function calling"]
+        direction TB
+        C1[/"CSV dropped in folder"/] --> C2(("LLM<br/>plans"))
+        C2 --> C3["tools: extract · stats+vector · retrieve"]
+        C3 --> C4[("Zilliz Cloud<br/>remote")]
+        C4 --> C2
+        C2 --> C5[/"Platform + video prediction"/]
+    end
+```
+
+| | Trigger | Backing store | Framework |
+|---|---|---|---|
+| policy-advisor | terminal Q&A | FAISS (local) | LangChain 1.x |
+| log-agent | terminal Q&A | FAISS + regex (local) | LangChain 0.3.x |
+| traffic-classifier | folder watcher | Zilliz Cloud (remote) | raw OpenAI function calling |
 
 ---
 
