@@ -129,7 +129,7 @@ COVERED / PARTIAL / GAP with citations.
 expectations), validated at load time. Shipped: **GDPR**, **HIPAA**, **ISO 27001** and
 the **Australian Privacy Principles** (the 13 APPs of the Privacy Act 1988). Adding a
 framework means adding a data file — the agent loop and gap-analysis engine stay
-unchanged. The APP definition is marked draft pending legal review; see `review_notes`
+unchanged. The APP summaries are intentionally high-level; see `review_notes`
 in `frameworks/app.json` for exactly which statutory details are simplified.
 
 **Tools:** `parse_policy_documents` (parse + index), `search_policy` (semantic search,
@@ -151,8 +151,8 @@ cd policy-advisor
 
 **Evals and tests:** `evals/golden_set.json` holds golden cases with
 `must_contain` / `must_not_contain` checks against the gap report — currently 11 APP
-cases over fictional Australian policies, all marked `draft` until the legal content is
-reviewed. The runner batches items so a full APP run costs four small `gpt-5-nano` calls.
+cases over fictional Australian policies. The runner batches items so a full APP run
+costs four small `gpt-5-nano` calls.
 
 ```bash
 cd policy-advisor

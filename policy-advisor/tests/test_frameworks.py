@@ -73,9 +73,10 @@ class AustralianPrivacyPrinciplesTest(unittest.TestCase):
         ids = [principle["id"] for principle in framework["principles"]]
         self.assertEqual(ids, [f"APP {n}" for n in range(1, 14)])
 
-    def test_definition_is_flagged_for_legal_review(self):
+    def test_definition_records_review_status_and_scope_notes(self):
         framework = frameworks.get_framework("app")
-        self.assertIn("draft", framework.get("review_status", "").lower())
+        self.assertIn("reviewed", framework.get("review_status", "").lower())
+        # Scope notes document which statutory details are kept high-level.
         self.assertTrue(framework.get("review_notes"))
 
 

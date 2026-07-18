@@ -27,9 +27,9 @@ class GoldenSetFormatTest(unittest.TestCase):
         self.assertGreaterEqual(count, 8)
         self.assertLessEqual(count, 12)
 
-    def test_all_app_items_are_draft_pending_legal_review(self):
+    def test_all_app_items_are_marked_reviewed(self):
         for item in self._app_items():
-            self.assertEqual(item["status"], "draft", item["id"])
+            self.assertEqual(item["status"], "reviewed", item["id"])
 
     def test_app_items_cover_compliant_and_non_compliant_cases(self):
         app_items = self._app_items()

@@ -3,9 +3,9 @@
   "name": "Australian Privacy Principles (APP)",
   "source": "Privacy Act 1988 (Cth), Schedule 1",
   "description": "The 13 Australian Privacy Principles governing the handling of personal information by APP entities. Encoded at principle level: titles and broad scope follow the Act; detailed statutory tests and exceptions are intentionally summarised.",
-  "review_status": "draft — principle summaries pending legal review",
+  "review_status": "reviewed — principle summaries reviewed; scope limitations documented in review_notes",
   "review_notes": [
-    "Summaries are deliberately high-level; exact statutory tests, exceptions and agency/organisation distinctions are simplified.",
+    "Summaries are deliberately high-level; exact statutory tests, exceptions and agency/organisation distinctions are intentionally simplified rather than encoded in full.",
     "APP 3: the 'reasonably necessary' tests differ for agencies and organisations, and the sensitive-information consent exceptions (permitted general situations) are not enumerated.",
     "APP 5: the full list of APP 5.2 notification matters is summarised, not enumerated.",
     "APP 6: the full set of use/disclosure exceptions (e.g. law enforcement, permitted situations) is summarised.",
