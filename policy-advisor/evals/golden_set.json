@@ -1,0 +1,115 @@
+{
+  "comment": "Golden-set cases for the policy-advisor gap analysis. Checks are case-insensitive substrings matched (whitespace-collapsed) against the COVERED/PARTIAL/GAP report. status=draft marks items whose expected results have not yet had legal review — all current APP items are DRAFT and their pass/fail results are provisional until then. Strict items assert an exact status; lenient items only forbid the wrong status, to tolerate reasonable COVERED/PARTIAL wobble.",
+  "items": [
+    {
+      "id": "app-01-transparency-covered",
+      "framework": "app",
+      "status": "draft",
+      "description": "A thorough policy that is itself an accessible, maintained privacy policy with a complaints channel should satisfy APP 1.",
+      "fixture": "fixtures/au_thorough_policy.txt",
+      "must_contain": ["APP 1: COVERED"],
+      "must_not_contain": [],
+      "notes": "DRAFT — expected status pending legal review."
+    },
+    {
+      "id": "app-03-collection-not-gap",
+      "framework": "app",
+      "status": "draft",
+      "description": "The thorough policy limits collection to what is reasonably necessary and requires consent for sensitive information, so APP 3 must not be reported as a gap.",
+      "fixture": "fixtures/au_thorough_policy.txt",
+      "must_contain": ["APP 3:"],
+      "must_not_contain": ["APP 3: GAP"],
+      "notes": "DRAFT — lenient: COVERED or PARTIAL both acceptable pending legal review."
+    },
+    {
+      "id": "app-08-overseas-not-gap",
+      "framework": "app",
+      "status": "draft",
+      "description": "The thorough policy names destination countries and contractual safeguards for overseas disclosure, so APP 8 must not be reported as a gap.",
+      "fixture": "fixtures/au_thorough_policy.txt",
+      "must_contain": ["APP 8:"],
+      "must_not_contain": ["APP 8: GAP"],
+      "notes": "DRAFT — lenient: COVERED or PARTIAL both acceptable pending legal review."
+    },
+    {
+      "id": "app-11-security-covered",
+      "framework": "app",
+      "status": "draft",
+      "description": "The thorough policy describes concrete safeguards (encryption, access control, training, testing) and a destruction/de-identification practice, satisfying APP 11.",
+      "fixture": "fixtures/au_thorough_policy.txt",
+      "must_contain": ["APP 11: COVERED"],
+      "must_not_contain": [],
+      "notes": "DRAFT — expected status pending legal review."
+    },
+    {
+      "id": "app-12-access-covered",
+      "framework": "app",
+      "status": "draft",
+      "description": "The thorough policy gives an access-request process with response time and written refusal reasons, satisfying APP 12.",
+      "fixture": "fixtures/au_thorough_policy.txt",
+      "must_contain": ["APP 12: COVERED"],
+      "must_not_contain": [],
+      "notes": "DRAFT — expected status pending legal review."
+    },
+    {
+      "id": "app-05-notice-not-covered",
+      "framework": "app",
+      "status": "draft",
+      "description": "The sparse startup notice lists what is collected but gives no identity/contact, access, correction or complaint information, so APP 5 cannot be fully covered.",
+      "fixture": "fixtures/au_sparse_policy.txt",
+      "must_contain": ["APP 5:"],
+      "must_not_contain": ["APP 5: COVERED"],
+      "notes": "DRAFT — lenient: PARTIAL or GAP both acceptable pending legal review."
+    },
+    {
+      "id": "app-11-security-gap",
+      "framework": "app",
+      "status": "draft",
+      "description": "The sparse startup notice says nothing about protecting personal information or destroying it when no longer needed, a clear APP 11 gap.",
+      "fixture": "fixtures/au_sparse_policy.txt",
+      "must_contain": ["APP 11: GAP"],
+      "must_not_contain": [],
+      "notes": "DRAFT — expected status pending legal review."
+    },
+    {
+      "id": "app-12-access-gap",
+      "framework": "app",
+      "status": "draft",
+      "description": "The sparse startup notice offers no way for individuals to access their information, a clear APP 12 gap.",
+      "fixture": "fixtures/au_sparse_policy.txt",
+      "must_contain": ["APP 12: GAP"],
+      "must_not_contain": [],
+      "notes": "DRAFT — expected status pending legal review."
+    },
+    {
+      "id": "app-13-correction-gap",
+      "framework": "app",
+      "status": "draft",
+      "description": "The sparse startup notice has no correction process at all, a clear APP 13 gap.",
+      "fixture": "fixtures/au_sparse_policy.txt",
+      "must_contain": ["APP 13: GAP"],
+      "must_not_contain": [],
+      "notes": "DRAFT — expected status pending legal review."
+    },
+    {
+      "id": "app-07-marketing-not-covered",
+      "framework": "app",
+      "status": "draft",
+      "description": "The retail policy runs unavoidable direct marketing with partner sharing and no opt-out mechanism, so APP 7 cannot be covered.",
+      "fixture": "fixtures/au_marketing_no_optout.txt",
+      "must_contain": ["APP 7:"],
+      "must_not_contain": ["APP 7: COVERED"],
+      "notes": "DRAFT — lenient: PARTIAL or GAP both acceptable pending legal review. Fixture deliberately has good security language so only APP 7 is at issue."
+    },
+    {
+      "id": "app-08-overseas-not-covered",
+      "framework": "app",
+      "status": "draft",
+      "description": "The hosting policy discloses data to unspecified overseas providers chosen on price, with no safeguards or accountability language, so APP 8 cannot be covered.",
+      "fixture": "fixtures/au_overseas_no_safeguards.txt",
+      "must_contain": ["APP 8:"],
+      "must_not_contain": ["APP 8: COVERED"],
+      "notes": "DRAFT — lenient: PARTIAL or GAP both acceptable pending legal review."
+    }
+  ]
+}

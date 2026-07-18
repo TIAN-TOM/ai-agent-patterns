@@ -1,0 +1,129 @@
+{
+  "id": "gdpr",
+  "name": "General Data Protection Regulation (GDPR)",
+  "source": "Regulation (EU) 2016/679",
+  "description": "EU regulation on the processing and free movement of personal data. Principles are encoded at article level; detailed sub-requirements are intentionally summarised.",
+  "principles": [
+    {
+      "id": "Art 5",
+      "title": "Principles relating to processing of personal data",
+      "summary": "Personal data must be processed lawfully, fairly and transparently, collected for specified purposes, minimised, accurate, kept no longer than necessary, and processed securely, with the controller accountable.",
+      "queries": [
+        "data processing principles purpose limitation",
+        "data minimisation and accuracy of personal data",
+        "how long personal data is retained"
+      ],
+      "expects": "The document states the purposes of processing, limits collection to what is needed, and sets retention limits."
+    },
+    {
+      "id": "Art 6",
+      "title": "Lawfulness of processing",
+      "summary": "Processing requires a lawful basis such as consent, contract, legal obligation, vital interests, public task, or legitimate interests.",
+      "queries": [
+        "legal basis for processing personal data",
+        "consent contract legitimate interests"
+      ],
+      "expects": "The document identifies the lawful basis relied on for each processing purpose."
+    },
+    {
+      "id": "Art 7",
+      "title": "Conditions for consent",
+      "summary": "Where consent is the basis, it must be demonstrable, freely given, specific, informed, unambiguous, and as easy to withdraw as to give.",
+      "queries": [
+        "how consent is obtained and recorded",
+        "withdrawing consent"
+      ],
+      "expects": "The document explains how consent is collected, recorded, and withdrawn."
+    },
+    {
+      "id": "Art 12-14",
+      "title": "Transparency and information to data subjects",
+      "summary": "Individuals must receive concise, transparent, intelligible privacy information, including identity of the controller, purposes, recipients, retention, and their rights.",
+      "queries": [
+        "privacy notice information provided to individuals",
+        "who controls personal data and how to contact them"
+      ],
+      "expects": "The document provides or references a privacy notice covering controller identity, purposes, recipients, retention and rights."
+    },
+    {
+      "id": "Art 15-22",
+      "title": "Data subject rights",
+      "summary": "Individuals have rights of access, rectification, erasure, restriction, data portability, and objection, including in relation to automated decision-making.",
+      "queries": [
+        "individual rights access rectification erasure",
+        "data portability objection automated decision-making"
+      ],
+      "expects": "The document describes the rights individuals can exercise and how requests are handled."
+    },
+    {
+      "id": "Art 28",
+      "title": "Processors",
+      "summary": "Processing by a third party on the controller's behalf must be governed by a contract imposing data-protection obligations on the processor.",
+      "queries": [
+        "third party service providers processing data",
+        "data processing agreements with vendors"
+      ],
+      "expects": "The document addresses vendor/processor arrangements and contractual data-protection obligations."
+    },
+    {
+      "id": "Art 30",
+      "title": "Records of processing activities",
+      "summary": "Controllers and processors must maintain records of processing activities, including purposes, categories, recipients, transfers, and retention.",
+      "queries": [
+        "records of processing activities",
+        "register of data processing"
+      ],
+      "expects": "The document commits to maintaining records or a register of processing activities."
+    },
+    {
+      "id": "Art 32",
+      "title": "Security of processing",
+      "summary": "Appropriate technical and organisational measures must protect personal data, considering pseudonymisation, encryption, confidentiality, integrity, availability, and testing.",
+      "queries": [
+        "technical and organisational security measures",
+        "encryption access control data security"
+      ],
+      "expects": "The document describes concrete security measures protecting personal data."
+    },
+    {
+      "id": "Art 33-34",
+      "title": "Personal data breach notification",
+      "summary": "Breaches must be notified to the supervisory authority without undue delay (where feasible within 72 hours) and to affected individuals when high risk.",
+      "queries": [
+        "data breach notification procedure",
+        "notifying regulator and individuals after a breach"
+      ],
+      "expects": "The document sets out a breach response and notification procedure with timeframes."
+    },
+    {
+      "id": "Art 35",
+      "title": "Data protection impact assessment",
+      "summary": "A DPIA is required before processing likely to result in high risk to individuals, such as large-scale profiling or monitoring.",
+      "queries": [
+        "data protection impact assessment",
+        "assessing privacy risk before new processing"
+      ],
+      "expects": "The document requires impact assessments for high-risk processing."
+    },
+    {
+      "id": "Art 37-39",
+      "title": "Data protection officer",
+      "summary": "A DPO must be designated in certain cases and involved in data-protection matters, with independence and adequate resources.",
+      "queries": [
+        "data protection officer responsibilities",
+        "privacy officer contact"
+      ],
+      "expects": "The document designates a DPO or privacy officer and describes their role."
+    },
+    {
+      "id": "Art 44-49",
+      "title": "International transfers",
+      "summary": "Transfers outside the EU/EEA require an adequacy decision or appropriate safeguards such as standard contractual clauses or binding corporate rules.",
+      "queries": [
+        "transferring personal data overseas",
+        "international data transfer safeguards standard contractual clauses"
+      ],
+      "expects": "The document identifies overseas transfers and the safeguards relied on."
+    }
+  ]
+}

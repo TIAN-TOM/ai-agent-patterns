@@ -1,0 +1,118 @@
+{
+  "id": "iso27001",
+  "name": "ISO/IEC 27001 Information Security Management",
+  "source": "ISO/IEC 27001:2022",
+  "description": "International standard for establishing, implementing, maintaining and continually improving an information security management system (ISMS). Encoded at clause and Annex A theme level.",
+  "principles": [
+    {
+      "id": "Clause 4",
+      "title": "Context of the organization",
+      "summary": "The organisation must determine internal and external issues, interested parties, and the scope of the ISMS.",
+      "queries": [
+        "scope of the information security management system",
+        "stakeholders and context for information security"
+      ],
+      "expects": "The document defines the scope and context of the security programme."
+    },
+    {
+      "id": "Clause 5",
+      "title": "Leadership and policy",
+      "summary": "Top management must demonstrate leadership, establish an information security policy, and assign roles and responsibilities.",
+      "queries": [
+        "information security policy approved by management",
+        "security roles and responsibilities"
+      ],
+      "expects": "The document shows management commitment, a security policy, and assigned responsibilities."
+    },
+    {
+      "id": "Clause 6",
+      "title": "Planning and risk management",
+      "summary": "Risk assessment and risk treatment processes must be defined, with security objectives and a Statement of Applicability.",
+      "queries": [
+        "information security risk assessment process",
+        "risk treatment plan and security objectives"
+      ],
+      "expects": "The document describes how security risks are assessed and treated."
+    },
+    {
+      "id": "Clause 7",
+      "title": "Support, competence and awareness",
+      "summary": "Resources, competence, awareness, communication, and documented information must support the ISMS.",
+      "queries": [
+        "security awareness training for staff",
+        "resources and documentation for security management"
+      ],
+      "expects": "The document covers training, awareness, and documentation supporting security."
+    },
+    {
+      "id": "Clause 8",
+      "title": "Operation",
+      "summary": "Operational planning and control, including performing risk assessments and implementing treatment plans.",
+      "queries": [
+        "operational security controls and procedures",
+        "implementing risk treatment"
+      ],
+      "expects": "The document describes operational security procedures in practice."
+    },
+    {
+      "id": "Clause 9",
+      "title": "Performance evaluation",
+      "summary": "Monitoring, measurement, internal audit, and management review of the ISMS.",
+      "queries": [
+        "security monitoring and internal audit",
+        "management review of security performance"
+      ],
+      "expects": "The document provides for monitoring, audits, and management review of security."
+    },
+    {
+      "id": "Clause 10",
+      "title": "Improvement",
+      "summary": "Nonconformities must be corrected and the ISMS continually improved.",
+      "queries": [
+        "corrective action for security nonconformities",
+        "continual improvement of security"
+      ],
+      "expects": "The document commits to corrective actions and continual improvement."
+    },
+    {
+      "id": "Annex A.5",
+      "title": "Organizational controls",
+      "summary": "Policies, asset management, access control governance, supplier relationships, incident management, and compliance.",
+      "queries": [
+        "asset inventory and acceptable use policies",
+        "supplier security and incident management process"
+      ],
+      "expects": "The document addresses organisational controls such as asset management, supplier security, and incident handling."
+    },
+    {
+      "id": "Annex A.6",
+      "title": "People controls",
+      "summary": "Screening, terms of employment, awareness, disciplinary process, and responsibilities after termination.",
+      "queries": [
+        "employee screening and confidentiality agreements",
+        "security responsibilities of personnel"
+      ],
+      "expects": "The document covers personnel security measures across the employment lifecycle."
+    },
+    {
+      "id": "Annex A.7",
+      "title": "Physical controls",
+      "summary": "Physical security perimeters, entry controls, equipment protection, and secure disposal.",
+      "queries": [
+        "physical security of offices and equipment",
+        "secure disposal of equipment and media"
+      ],
+      "expects": "The document addresses physical protection of premises and equipment."
+    },
+    {
+      "id": "Annex A.8",
+      "title": "Technological controls",
+      "summary": "Endpoint security, access rights, malware protection, backups, logging, network security, cryptography, and secure development.",
+      "queries": [
+        "technical controls malware backup logging",
+        "network security encryption secure development"
+      ],
+      "expects": "The document describes technical controls such as backups, logging, encryption, and network security."
+    }
+  ]
+}
