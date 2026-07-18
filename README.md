@@ -29,11 +29,11 @@ dependencies (in fact policy-advisor and log-agent pin incompatible LangChain ma
 
 | | policy-advisor | log-agent | traffic-classifier |
 |---|---|---|---|
-| Task | Read policy PDFs, check them against GDPR/HIPAA/etc. | Read system logs, detect brute force / failed logins | Classify video traffic as Netflix / Stan / YouTube |
+| Task | Gap-check policy docs against pluggable frameworks (GDPR / HIPAA / ISO 27001 / APP) | Read system logs, detect brute force / failed logins | Classify video traffic as Netflix / Stan / YouTube |
 | **Framework** | LangChain 1.x | LangChain 0.3.x | raw OpenAI function calling |
-| **Trigger** | terminal Q&A | terminal Q&A | folder watcher (watchdog) |
+| **Trigger** | terminal Q&A + one-shot CLI | terminal Q&A | folder watcher (watchdog) |
 | **Retrieval** | local FAISS | local FAISS + regex | external Zilliz Cloud |
-| Tools | 3 | 4 (incl. 10 analysis types) | 3 |
+| Tools | 6 | 4 (incl. 10 analysis types) | 3 |
 | Model | gpt-5-nano | gpt-5-nano | gpt-4o-mini |
 | Extra | compliance gap analysis | PII masking + MITRE ATT&CK | label-leak protection |
 
@@ -52,7 +52,7 @@ flowchart LR
     subgraph PA["policy-advisor · RAG"]
         direction TB
         A1[/"Terminal question"/] --> A2(("LLM<br/>plans"))
-        A2 --> A3["tools: parse · search · get_doc"]
+        A2 --> A3["tools: parse · search · get_doc · frameworks"]
         A3 --> A4[("FAISS<br/>local")]
         A4 --> A2
         A2 --> A5[/"Compliance report"/]
@@ -119,19 +119,49 @@ cp .env.example .env     # then edit .env with real values
 
 ## 1. policy-advisor — RAG compliance advisor
 
-A LangChain RAG + tool-calling agent. It chunks policy PDFs into a FAISS vector store,
-lets the LLM break a compliance framework (GDPR, HIPAA, SOC2, ISO 27001, …) into
-searchable requirements, then checks each one against the documents and reports gaps.
+A LangChain RAG + tool-calling agent. It chunks policy documents (PDF or plain text)
+into a FAISS vector store, loads a compliance framework definition, retrieves evidence
+for every principle via multi-query search, then reports each principle as
+COVERED / PARTIAL / GAP with citations.
+
+**Frameworks are pluggable data, not code.** Each framework is a JSON file in
+`policy-advisor/frameworks/` (id, name, source, principles with retrieval queries and
+expectations), validated at load time. Shipped: **GDPR**, **HIPAA**, **ISO 27001** and
+the **Australian Privacy Principles** (the 13 APPs of the Privacy Act 1988). Adding a
+framework means adding a data file — the agent loop and gap-analysis engine stay
+unchanged. The APP definition is marked draft pending legal review; see `review_notes`
+in `frameworks/app.json` for exactly which statutory details are simplified.
 
 **Tools:** `parse_policy_documents` (parse + index), `search_policy` (semantic search,
-supports comma-separated multi-queries), `get_full_document` (fetch full text).
+supports comma-separated multi-queries), `get_full_document` (fetch full text),
+`list_compliance_frameworks`, `get_framework_requirements`, and
+`gather_compliance_evidence` (per-principle retrieval in one call).
 
-**Before running:** drop your own policy PDFs into `policy-advisor/policy_documents/`.
+**Before running:** drop your own policy files (`.pdf`/`.txt`) into
+`policy-advisor/policy_documents/`.
 
 ```bash
-./run.sh policy
+./run.sh policy                                       # interactive Q&A
+
+cd policy-advisor
+./venv/bin/python agent.py --list-frameworks          # offline: show loaded frameworks
+./venv/bin/python agent.py --gap-analysis app         # one-shot APP gap analysis
+./venv/bin/python agent.py --gap-analysis gdpr        # same engine, different framework
 ```
-Example query:
+
+**Evals and tests:** `evals/golden_set.json` holds golden cases with
+`must_contain` / `must_not_contain` checks against the gap report — currently 11 APP
+cases over fictional Australian policies, all marked `draft` until the legal content is
+reviewed. The runner batches items so a full APP run costs four small `gpt-5-nano` calls.
+
+```bash
+cd policy-advisor
+./venv/bin/python -m unittest discover -s tests       # offline unit tests
+./venv/bin/python evals/run_evals.py --dry-run        # offline golden-set validation
+./venv/bin/python evals/run_evals.py --framework app  # live evals (needs OPENAI_API_KEY)
+```
+
+Example query (interactive mode):
 ```
 Check this privacy statement against GDPR requirements and give me a detailed compliance
 report. Cover the core GDPR principles (lawfulness, transparency, data subject rights,
