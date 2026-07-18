@@ -160,7 +160,12 @@ class PolicyAdvisor:
         if self.all_documents:
             self.vector_store = FAISS.from_documents(self.all_documents, self.embeddings)
 
-        result = f"Successfully parsed {len(file_info)} policy document(s):\n" + "\n".join(file_info)
+        # document_texts holds only files that loaded; the rest are error lines.
+        parsed = len(self.document_texts)
+        failed = len(file_info) - parsed
+        result = f"Successfully parsed {parsed} policy document(s):\n" + "\n".join(file_info)
+        if failed:
+            result += f"\n\n{failed} file(s) failed to load (see 'Error loading' lines above)."
         result += f"\n\nTotal chunks for analysis: {len(self.all_documents)}"
 
         return result
@@ -374,7 +379,7 @@ class PolicyAdvisor:
             StructuredTool.from_function(
                 func=parse_no_input,
                 name="parse_policy_documents",
-                description="Parse all PDF policy documents in the policy_documents directory. Use this tool before using search_policy tool. Takes no input parameters.",
+                description="Parse all policy documents (.pdf and .txt) in the policy_documents directory. Use this tool before using search_policy tool. Takes no input parameters.",
                 args_schema=ParseInput
             ),
             StructuredTool.from_function(
