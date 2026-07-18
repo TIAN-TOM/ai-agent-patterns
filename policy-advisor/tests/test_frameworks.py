@@ -120,6 +120,15 @@ class ValidationTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "duplicate framework id"):
                 frameworks.load_frameworks(Path(tmp))
 
+    def test_malformed_json_names_the_file_and_does_not_abort_silently(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "valid.json").write_text(
+                json.dumps(_minimal_framework()), encoding="utf-8"
+            )
+            (Path(tmp) / "broken.json").write_text("{ not valid json", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "broken.json"):
+                frameworks.load_frameworks(Path(tmp))
+
 
 if __name__ == "__main__":
     unittest.main()

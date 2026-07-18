@@ -55,7 +55,10 @@ def load_frameworks(directory: Path = FRAMEWORKS_DIR) -> Dict[str, dict]:
     """Load and validate every ``*.json`` framework definition in ``directory``."""
     frameworks: Dict[str, dict] = {}
     for path in sorted(Path(directory).glob("*.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise ValueError(f"{path.name}: invalid JSON ({e})") from e
         _validate_framework(data, path.name)
         framework_id = data["id"].strip().lower()
         if framework_id in frameworks:
