@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import frameworks
 
 # Frameworks every checkout must ship. Extended as new standards are added.
-EXPECTED_IDS = {"gdpr", "hipaa", "iso27001"}
+EXPECTED_IDS = {"gdpr", "hipaa", "iso27001", "app"}
 
 
 def _minimal_framework(**overrides):
@@ -63,6 +63,20 @@ class LoadShippedFrameworksTest(unittest.TestCase):
         lines = "\n".join(frameworks.describe_frameworks())
         for framework_id in EXPECTED_IDS:
             self.assertIn(framework_id, lines)
+
+
+class AustralianPrivacyPrinciplesTest(unittest.TestCase):
+    """The APP definition must cover all 13 principles of the Privacy Act 1988."""
+
+    def test_all_thirteen_principles_present_in_order(self):
+        framework = frameworks.get_framework("app")
+        ids = [principle["id"] for principle in framework["principles"]]
+        self.assertEqual(ids, [f"APP {n}" for n in range(1, 14)])
+
+    def test_definition_is_flagged_for_legal_review(self):
+        framework = frameworks.get_framework("app")
+        self.assertIn("draft", framework.get("review_status", "").lower())
+        self.assertTrue(framework.get("review_notes"))
 
 
 class ValidationTest(unittest.TestCase):

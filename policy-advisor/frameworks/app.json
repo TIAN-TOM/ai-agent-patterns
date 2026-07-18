@@ -1,0 +1,157 @@
+{
+  "id": "app",
+  "name": "Australian Privacy Principles (APP)",
+  "source": "Privacy Act 1988 (Cth), Schedule 1",
+  "description": "The 13 Australian Privacy Principles governing the handling of personal information by APP entities. Encoded at principle level: titles and broad scope follow the Act; detailed statutory tests and exceptions are intentionally summarised.",
+  "review_status": "draft — principle summaries pending legal review",
+  "review_notes": [
+    "Summaries are deliberately high-level; exact statutory tests, exceptions and agency/organisation distinctions are simplified.",
+    "APP 3: the 'reasonably necessary' tests differ for agencies and organisations, and the sensitive-information consent exceptions (permitted general situations) are not enumerated.",
+    "APP 5: the full list of APP 5.2 notification matters is summarised, not enumerated.",
+    "APP 6: the full set of use/disclosure exceptions (e.g. law enforcement, permitted situations) is summarised.",
+    "APP 7: the source-based conditions (APP 7.2/7.3) and opt-out mechanics are summarised.",
+    "APP 8: the s 16C accountability rule and its exceptions are summarised as 'reasonable steps before overseas disclosure'.",
+    "APP 9: government related identifier definitions and the adoption/use exceptions are summarised.",
+    "APP 12 and APP 13: statutory response timeframes, refusal grounds and written-notice mechanics are summarised as 'reasonable period / written reasons'.",
+    "The Notifiable Data Breaches scheme (Privacy Act Part IIIC) is related but is not one of the 13 APPs and is not encoded here."
+  ],
+  "principles": [
+    {
+      "id": "APP 1",
+      "title": "Open and transparent management of personal information",
+      "summary": "Entities must manage personal information openly and transparently, including having a clearly expressed and up-to-date privacy policy, available free of charge, and practices that ensure compliance with the APPs.",
+      "queries": [
+        "privacy policy availability and how personal information is managed",
+        "how to complain about a privacy breach",
+        "openness and transparency about information handling practices"
+      ],
+      "expects": "The document is (or references) an up-to-date, accessible privacy policy describing how personal information is managed and how to complain."
+    },
+    {
+      "id": "APP 2",
+      "title": "Anonymity and pseudonymity",
+      "summary": "Individuals must have the option of not identifying themselves, or of using a pseudonym, when dealing with the entity, unless identification is required by law or is impracticable.",
+      "queries": [
+        "dealing with the organisation anonymously or under a pseudonym",
+        "option not to identify yourself"
+      ],
+      "expects": "The document offers anonymous or pseudonymous interaction where practicable, or explains when identification is required."
+    },
+    {
+      "id": "APP 3",
+      "title": "Collection of solicited personal information",
+      "summary": "Personal information may only be collected where reasonably necessary for the entity's functions or activities, by lawful and fair means, and generally from the individual. Sensitive information generally requires the individual's consent.",
+      "queries": [
+        "what personal information is collected and why",
+        "consent for collecting sensitive information such as health data",
+        "collecting information directly from the individual by fair means"
+      ],
+      "expects": "The document limits collection to what is needed for stated functions, explains collection methods, and requires consent for sensitive information."
+    },
+    {
+      "id": "APP 4",
+      "title": "Dealing with unsolicited personal information",
+      "summary": "If unsolicited personal information is received and could not have been collected under APP 3, it must be destroyed or de-identified as soon as practicable, if lawful and reasonable to do so.",
+      "queries": [
+        "handling personal information received without asking for it",
+        "destroying or de-identifying unsolicited information"
+      ],
+      "expects": "The document describes how unsolicited personal information is assessed and destroyed or de-identified."
+    },
+    {
+      "id": "APP 5",
+      "title": "Notification of the collection of personal information",
+      "summary": "At or around the time of collection, individuals must be notified or made aware of collection matters, such as the entity's identity and contact details, the purposes of collection, usual disclosures, and how to access, correct and complain.",
+      "queries": [
+        "notice given when personal information is collected",
+        "who we are and why we collect your information",
+        "how to access correct or complain about your information"
+      ],
+      "expects": "The document provides a collection notice covering identity, purposes, usual disclosures, and access/correction/complaint mechanisms."
+    },
+    {
+      "id": "APP 6",
+      "title": "Use or disclosure of personal information",
+      "summary": "Personal information may only be used or disclosed for the primary purpose of collection, or for a secondary purpose with consent or where an exception applies (for example, a reasonably expected related purpose or a legal requirement).",
+      "queries": [
+        "purposes for which personal information is used or disclosed",
+        "sharing information with third parties",
+        "using information for a secondary purpose or with consent"
+      ],
+      "expects": "The document ties use and disclosure to the collection purposes and states when consent or an exception is needed."
+    },
+    {
+      "id": "APP 7",
+      "title": "Direct marketing",
+      "summary": "Organisations may only use or disclose personal information for direct marketing in limited circumstances, must provide a simple opt-out mechanism, and must honour opt-out requests.",
+      "queries": [
+        "using personal information for direct marketing",
+        "opting out of marketing communications",
+        "unsubscribe from promotional messages"
+      ],
+      "expects": "The document restricts direct marketing, offers a clear opt-out, and honours opt-outs."
+    },
+    {
+      "id": "APP 8",
+      "title": "Cross-border disclosure of personal information",
+      "summary": "Before disclosing personal information to an overseas recipient, entities must take reasonable steps to ensure the recipient does not breach the APPs, and generally remain accountable for the overseas handling, subject to exceptions such as informed consent.",
+      "queries": [
+        "disclosing personal information to overseas recipients",
+        "countries where personal information is stored or processed",
+        "safeguards for international data transfers"
+      ],
+      "expects": "The document identifies overseas disclosures (and typical destination countries) and the safeguards or accountability arrangements applied."
+    },
+    {
+      "id": "APP 9",
+      "title": "Adoption, use or disclosure of government related identifiers",
+      "summary": "Organisations must not adopt a government related identifier (for example a Medicare or driver licence number) as their own identifier of an individual, and may only use or disclose such identifiers in limited circumstances.",
+      "queries": [
+        "use of government identifiers such as Medicare or driver licence numbers",
+        "adopting government identifiers as customer identifiers"
+      ],
+      "expects": "The document states that government related identifiers are not used as internal identifiers and limits their use and disclosure."
+    },
+    {
+      "id": "APP 10",
+      "title": "Quality of personal information",
+      "summary": "Entities must take reasonable steps to ensure the personal information they collect, use and disclose is accurate, up to date, complete and (for use and disclosure) relevant.",
+      "queries": [
+        "keeping personal information accurate and up to date",
+        "data quality checks on personal information"
+      ],
+      "expects": "The document commits to keeping personal information accurate, complete and up to date."
+    },
+    {
+      "id": "APP 11",
+      "title": "Security of personal information",
+      "summary": "Entities must take reasonable steps to protect personal information from misuse, interference and loss, and from unauthorised access, modification or disclosure, and must destroy or de-identify information no longer needed unless retention is required by law.",
+      "queries": [
+        "security measures protecting personal information",
+        "protection against unauthorised access or disclosure",
+        "destroying or de-identifying information no longer needed"
+      ],
+      "expects": "The document describes security safeguards and a destruction/de-identification practice for information no longer needed."
+    },
+    {
+      "id": "APP 12",
+      "title": "Access to personal information",
+      "summary": "On request, entities must give individuals access to the personal information held about them, subject to exceptions, responding within a reasonable period and giving written reasons for any refusal.",
+      "queries": [
+        "requesting access to your personal information",
+        "how individuals can obtain a copy of their information"
+      ],
+      "expects": "The document provides a process for individuals to access their personal information and explains how refusals are handled."
+    },
+    {
+      "id": "APP 13",
+      "title": "Correction of personal information",
+      "summary": "Entities must correct personal information that is inaccurate, out of date, incomplete, irrelevant or misleading, on request or on their own initiative, notify recipients where requested and reasonable, and give written reasons for refusals.",
+      "queries": [
+        "correcting inaccurate personal information",
+        "updating or amending your personal details"
+      ],
+      "expects": "The document provides a correction process, including how corrections are handled and refusals explained."
+    }
+  ]
+}
