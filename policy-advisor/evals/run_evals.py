@@ -39,8 +39,14 @@ import tempfile
 from collections import OrderedDict
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 EVALS_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(EVALS_DIR.parent))
+
+# The agents keep their key in policy-advisor/.env; load it regardless of CWD
+# so the key check below sees it.
+load_dotenv(EVALS_DIR.parent / ".env")
 
 import frameworks
 
