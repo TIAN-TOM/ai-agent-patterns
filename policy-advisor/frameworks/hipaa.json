@@ -1,0 +1,108 @@
+{
+  "id": "hipaa",
+  "name": "Health Insurance Portability and Accountability Act (HIPAA)",
+  "source": "45 CFR Parts 160 and 164 (Privacy, Security and Breach Notification Rules)",
+  "description": "US federal rules protecting individually identifiable health information (PHI) held by covered entities and business associates. Encoded at rule/safeguard level; implementation specifications are summarised.",
+  "principles": [
+    {
+      "id": "164.502 Uses and disclosures",
+      "title": "Permitted uses and disclosures of PHI",
+      "summary": "PHI may only be used or disclosed as permitted or required, such as for treatment, payment, and health care operations, or with authorisation.",
+      "queries": [
+        "when health information may be used or disclosed",
+        "authorisation for disclosure of health records"
+      ],
+      "expects": "The document limits use and disclosure of health information to permitted purposes or authorised cases."
+    },
+    {
+      "id": "164.502(b) Minimum necessary",
+      "title": "Minimum necessary standard",
+      "summary": "Uses, disclosures, and requests of PHI must be limited to the minimum necessary to accomplish the intended purpose.",
+      "queries": [
+        "minimum necessary access to health information",
+        "limiting staff access to patient records"
+      ],
+      "expects": "The document restricts access to and disclosure of health information to the minimum necessary."
+    },
+    {
+      "id": "164.504(e) Business associates",
+      "title": "Business associate agreements",
+      "summary": "Disclosures to business associates require contracts obligating them to safeguard PHI.",
+      "queries": [
+        "business associate agreement",
+        "third party vendors handling health information"
+      ],
+      "expects": "The document requires agreements with vendors that handle health information."
+    },
+    {
+      "id": "164.520 Notice",
+      "title": "Notice of privacy practices",
+      "summary": "Individuals are entitled to a notice describing how PHI is used and disclosed and their rights.",
+      "queries": [
+        "notice of privacy practices",
+        "informing patients how their information is used"
+      ],
+      "expects": "The document provides or references a privacy notice for patients."
+    },
+    {
+      "id": "164.524 Access",
+      "title": "Individual right of access",
+      "summary": "Individuals have a right to inspect and obtain a copy of their PHI in a designated record set.",
+      "queries": [
+        "patient access to their own records",
+        "requesting copies of health information"
+      ],
+      "expects": "The document lets individuals access and obtain copies of their health information."
+    },
+    {
+      "id": "164.526 Amendment",
+      "title": "Right to amendment",
+      "summary": "Individuals may request amendment of inaccurate or incomplete PHI, with a process for accepting or denying requests.",
+      "queries": [
+        "correcting or amending health records",
+        "disputing inaccurate patient information"
+      ],
+      "expects": "The document provides a process to amend inaccurate health information."
+    },
+    {
+      "id": "164.308 Administrative safeguards",
+      "title": "Administrative safeguards",
+      "summary": "Security management processes including risk analysis, workforce training, access management, and contingency planning.",
+      "queries": [
+        "security risk analysis and management",
+        "workforce security training and access management"
+      ],
+      "expects": "The document covers risk assessment, staff training and administrative security processes."
+    },
+    {
+      "id": "164.310 Physical safeguards",
+      "title": "Physical safeguards",
+      "summary": "Facility access controls, workstation security, and device and media controls for systems holding ePHI.",
+      "queries": [
+        "physical access controls to facilities and workstations",
+        "device and media disposal controls"
+      ],
+      "expects": "The document addresses physical protection of facilities, workstations and media."
+    },
+    {
+      "id": "164.312 Technical safeguards",
+      "title": "Technical safeguards",
+      "summary": "Access control, audit controls, integrity protections, authentication, and transmission security for ePHI.",
+      "queries": [
+        "technical access controls audit logs authentication",
+        "encryption of health data in transit"
+      ],
+      "expects": "The document describes technical controls such as access control, audit logging, and encryption."
+    },
+    {
+      "id": "164.400-414 Breach notification",
+      "title": "Breach notification",
+      "summary": "Following a breach of unsecured PHI, affected individuals, HHS, and in some cases the media must be notified within required timeframes.",
+      "queries": [
+        "breach notification to individuals and regulators",
+        "responding to a breach of health information"
+      ],
+      "expects": "The document sets out breach response and notification obligations with timeframes."
+    }
+  ]
+}
